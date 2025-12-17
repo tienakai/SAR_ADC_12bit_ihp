@@ -1,1 +1,7 @@
+# Simulation / waveform
+*.raw
+*.psf
+*.fsdb
+*.log
+*.trn
 *.raw
