@@ -1,0 +1,30 @@
+** sch_path: /home/tien/ihp/schematic/test2.sch
+**.subckt test2
+Vgs net1 GND -1.8
+Vds net3 GND -3.3
+Vd net3 net2 0
+.save i(vd)
+XM3 GND net1 net2 GND sg13_hv_pmos w=84u l=0.4u ng=30 m=1
+**** begin user architecture code
+
+.lib cornerMOShv.lib mos_tt
+
+
+
+.param temp=27
+.options savecurrents
+.control
+save all
+op
+write test2.raw
+set appendwrite
+print I(Vd)
+dc Vds 0 -3.3 -0.01 Vgs -0.45 -1.8 -0.05
+write test2.raw
+.endc
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

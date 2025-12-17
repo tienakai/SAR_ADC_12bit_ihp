@@ -1,0 +1,26 @@
+** sch_path: /home/tien/ihp/schematic/test-inv.sch
+**.subckt test-inv
+x1 EN_Z EN VDD VSS sg13g2_inv_1
+V9 EN VSS pulse(0 1.8 0 0.1n 0.1n 50n 100n)
+V1 VDD VSS 1.8
+.save i(v1)
+V4 VSS GND 0
+**** begin user architecture code
+ .lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.include /home/tien/conda-gf180mcu-env/share/pdk/ihp-sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
+
+
+
+
+.option temp = 27
+.save all
+
+.option GMIN=1e-12 reltol=1e-6
+
+.tran 10n 100u
+
+
+**** end user architecture code
+**.ends
+.end
