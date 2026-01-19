@@ -28,10 +28,10 @@ C {latched_comparator/latched_comparator.sym} 40 -70 0 0 {name=x1}
 C {devices/vsource.sym} 100 -610 0 0 {name=V1 value=1.8}
 C {devices/gnd.sym} 100 -540 0 0 {name=l14 lab=GND}
 C {devices/vdd.sym} 100 -670 0 0 {name=l15 lab=VDD}
-C {devices/vsource.sym} 490 -620 0 0 {name=V3 value="0 PULSE(1.2 1.3 0 0.1n 0.1n 80n 200n)"}
+C {devices/vsource.sym} 490 -620 0 0 {name=V3 value="0 PULSE(1.25 1.3 0 0.1n 0.1n 80n 200n)"}
 C {devices/gnd.sym} 490 -550 0 0 {name=l21 lab=GND}
 C {devices/lab_wire.sym} 490 -680 0 0 {name=l22 sig_type=std_logic lab=inp}
-C {devices/vsource.sym} 820 -610 0 0 {name=V2 value="0 PULSE(1.3 1.2 0 0.1n 0.1n 80n 200n)"}
+C {devices/vsource.sym} 820 -610 0 0 {name=V2 value="0 PULSE(1.3 1.25 0 0.1n 0.1n 80n 200n)"}
 C {devices/gnd.sym} 820 -540 0 0 {name=l23 lab=GND}
 C {devices/lab_wire.sym} 820 -670 0 0 {name=l24 sig_type=std_logic lab=inn}
 C {devices/vsource.sym} 240 -610 0 0 {name=V7 value="0 PULSE(0 1.8 0 0.1n 0.1n 50n 100n)" savecurrent=true}

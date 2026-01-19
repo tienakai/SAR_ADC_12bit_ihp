@@ -1,10 +1,10 @@
 ** sch_path: /home/tien/ihp/schematic/test1.sch
 **.subckt test1
-Vgs net1 GND 1.8
-Vds net3 GND 5
+Vgs net1 GND 3
+Vds net3 GND 1.8
 Vd net3 net2 0
 .save i(vd)
-XM1 net2 net1 GND GND sg13_hv_nmos w=3.15u l=0.45u ng=1 m=1 rfmode=1
+XM1 net2 net1 GND GND sg13_hv_nmos w=0.69u l=0.5u ng=1 m=1 rfmode=1
 **** begin user architecture code
 
 .lib cornerMOShv.lib mos_tt
@@ -18,7 +18,7 @@ save all
 op
 write test1.raw
 set appendwrite
-dc Vds 0 5 0.01
+dc Vds 0 1.8 0.01
 write test1.raw
 .endc
 

@@ -1,0 +1,28 @@
+** sch_path: /home/tien/ihp/schematic/test5.sch
+**.subckt test5
+Vrh P net1 0
+.save i(vrh)
+XR3 net2 net1 gnd rhigh w=0.5e-6 l=2.75e-6 m=1 b=0
+XR1 M net2 gnd rhigh w=0.5e-6 l=2.75e-6 m=1 b=0
+**** begin user architecture code
+
+.lib /home/tien/conda-gf180mcu-env/share/pdk/ihp-sg13g2/libs.tech/ngspice/models/cornerRES.lib res_typ_stat
+
+
+
+vp P 0 1.8
+vm M 0 0
+.options savecurrents
+.control
+save all
+dc vp 0 3 0.01
+*dc temp -40 140 1
+*plot v(p,m) / vrh#branch
+write dc_res_temp.raw
+
+.endc
+
+
+**** end user architecture code
+**.ends
+.end

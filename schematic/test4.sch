@@ -115,9 +115,9 @@ xschem netlist
 simulate
 "}
 C {sg13g2_pr/sg13_lv_pmos.sym} -540 -180 0 0 {name=M1
-l=0.35u
-w=128u
-ng=16
+l=1.77u
+w=1u
+ng=1
 m=1
 model=sg13_lv_pmos
 spiceprefix=X

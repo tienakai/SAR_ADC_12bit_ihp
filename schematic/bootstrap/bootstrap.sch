@@ -170,14 +170,6 @@ spiceprefix=X
 }
 C {lab_pin.sym} 610 -570 0 0 {name=p7 sig_type=std_logic lab=VDD}
 C {lab_pin.sym} 660 -570 0 1 {name=p25 sig_type=std_logic lab=VSS}
-C {sg13g2_pr/sg13_lv_nmos.sym} 640 -570 0 0 {name=M11
-l=0.45u
-w=3.5u
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
 C {sg13g2_pr/sg13_hv_nmos.sym} 680 -840 3 1 {name=M9
 l=0.45u
 w=6.3u
@@ -189,3 +181,11 @@ spiceprefix=X
 C {sg13g2_stdcells/sg13g2_inv_2.sym} 870 -500 0 0 {name=x2 VDD=VDD VSS=VSS prefix=sg13g2_ }
 C {sg13g2_stdcells/sg13g2_inv_1.sym} 750 -500 0 0 {name=x4 VDD=VDD VSS=VSS prefix=sg13g2_ }
 C {sg13g2_stdcells/sg13g2_inv_1.sym} 320 -290 0 0 {name=x1 VDD=VDD VSS=VSS prefix=sg13g2_ }
+C {sg13g2_pr/sg13_lv_nmos.sym} 640 -570 0 0 {name=M11
+l=0.45u
+w=3.5u
+ng=1
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
+}

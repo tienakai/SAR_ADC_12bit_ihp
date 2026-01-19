@@ -46,11 +46,11 @@ XM8 EN_Z_LVL_SHFT VGATE Vbottom VSS sg13_lv_nmos w=1.8u l=0.15u ng=2 m=1
 XM3 Vbottom EN_Z VSS VSS sg13_lv_nmos w=3.5u l=0.15u ng=1 m=1
 XM10 VIN VGATE Vbottom VSS sg13_lv_nmos w=3.5u l=0.15u ng=1 m=1
 XM4 net2 EN_Z VSS VSS sg13_lv_nmos w=3.5u l=0.15u ng=1 m=1
-XM11 VGATE VDD VGATE_1V8 VSS sg13_lv_nmos w=3.5u l=0.45u ng=1 m=1
 XM9 VGATE VDD net2 VSS sg13_hv_nmos w=6.3u l=0.45u ng=2 m=1
 x2 SW_ON net1 VDD VSS sg13g2_inv_2
 x4 net1 VGATE_1V8 VDD VSS sg13g2_inv_1
 x1 EN_Z EN VDD VSS sg13g2_inv_1
+XM11 VGATE VDD VGATE_1V8 VSS sg13_lv_nmos w=3.5u l=0.45u ng=1 m=1
 .ends
 
 .end

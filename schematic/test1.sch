@@ -63,14 +63,14 @@ save all
 op
 write test1.raw
 set appendwrite
-dc Vds 0 5 0.01 
+dc Vds 0 1.8 0.01 
 write test1.raw
 .endc
 "}
 C {devices/gnd.sym} -310 -200 0 0 {name=l1 lab=GND}
 C {devices/gnd.sym} -440 -200 0 0 {name=l2 lab=GND}
-C {devices/vsource.sym} -440 -250 0 0 {name=Vgs value=1.8}
-C {devices/vsource.sym} -180 -290 0 0 {name=Vds value=5}
+C {devices/vsource.sym} -440 -250 0 0 {name=Vgs value=3}
+C {devices/vsource.sym} -180 -290 0 0 {name=Vds value=1.8}
 C {devices/gnd.sym} -180 -200 0 0 {name=l3 lab=GND}
 C {devices/gnd.sym} -260 -200 0 0 {name=l4 lab=GND}
 C {devices/ammeter.sym} -250 -360 1 0 {name=Vd}
@@ -111,8 +111,8 @@ xschem netlist
 simulate
 "}
 C {sg13g2_pr/sg13_hv_rf_nmos.sym} -330 -290 0 0 {name=M1
-l=0.45u
-w=3.15u
+l=0.5u
+w=0.69u
 ng=1
 m=1
 rfmode=1

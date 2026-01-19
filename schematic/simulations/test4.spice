@@ -4,7 +4,7 @@ Vgs net1 GND -1.2
 Vds net3 GND -1.8
 Vd net3 net2 0
 .save i(vd)
-XM1 GND net1 net2 GND sg13_lv_pmos w=128u l=0.35u ng=16 m=1
+XM1 GND net1 net2 GND sg13_lv_pmos w=1u l=1.77u ng=1 m=1
 **** begin user architecture code
 
 .lib cornerMOSlv.lib mos_tt

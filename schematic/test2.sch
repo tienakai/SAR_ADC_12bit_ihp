@@ -66,14 +66,14 @@ op
 write test2.raw
 set appendwrite
 print I(Vd)
-dc Vds 0 -3.3 -0.01 Vgs -0.45 -1.8 -0.05
+dc vds 0 -1.8 -0.01
 write test2.raw
 .endc
 "}
 C {devices/gnd.sym} -400 80 0 0 {name=l1 lab=GND}
 C {devices/gnd.sym} -530 80 0 0 {name=l2 lab=GND}
-C {devices/vsource.sym} -530 30 0 0 {name=Vgs value=-1.8}
-C {devices/vsource.sym} -270 -10 0 0 {name=Vds value=-3.3}
+C {devices/vsource.sym} -530 30 0 0 {name=Vgs value=-1.2}
+C {devices/vsource.sym} -270 -10 0 0 {name=Vds value=-1.8}
 C {devices/gnd.sym} -270 80 0 0 {name=l3 lab=GND}
 C {devices/gnd.sym} -350 80 0 0 {name=l4 lab=GND}
 C {devices/ammeter.sym} -340 -120 1 0 {name=Vd}
@@ -115,8 +115,8 @@ simulate
 "}
 C {sg13g2_pr/sg13_hv_pmos.sym} -420 -10 0 0 {name=M3
 l=0.4u
-w=84u
-ng=30
+w=14.6u
+ng=2
 m=1
 model=sg13_hv_pmos
 spiceprefix=X
