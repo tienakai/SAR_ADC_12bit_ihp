@@ -1,0 +1,21 @@
+[*]
+[*] GTKWave SAR ADC Debug
+[*]
+
+[dumpfile] "verilog/state_machine.vcd"
+[timestart] 0
+
+@200
+state_machine_tb.clk
+state_machine_tb.rst
+state_machine_tb.start
+state_machine_tb.comp_p
+state_machine_tb.comp_n
+
+@201
+state_machine_tb.data[11:0]
+
+@202
+state_machine_tb.sample_o
+state_machine_tb.clk_data
+
