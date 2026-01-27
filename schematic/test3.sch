@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.09
-x2=1.89
+x1=1.3877788e-17
+x2=1.8
 divx=5
 subdivx=1
 node=i(vd)
@@ -62,7 +62,7 @@ save all
 op
 write test3.raw
 set appendwrite
-dc Vds 0 1.8 0.01 
+dc Vds 0 1.2 0.01 
 write test3.raw
 .endc
 "}
@@ -111,9 +111,9 @@ write_data [save_params] $netlist_dir/[file rootname [file tail [xschem get curr
 xschem netlist
 simulate
 "}
-C {sg13g2_pr/sg13_lv_nmos.sym} 100 160 0 0 {name=M5
-l=0.15u
-w=0.42u
+C {sg13g2_pr/sg13_lv_nmos.sym} 100 160 0 0 {name=M7
+l=0.13u
+w=0.55u
 ng=1
 m=1
 model=sg13_lv_nmos

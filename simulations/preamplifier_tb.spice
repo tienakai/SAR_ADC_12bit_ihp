@@ -1,0 +1,86 @@
+** sch_path: /home/tien/ihp/schematic/simulations/preamplifier_tb.sch
+**.subckt preamplifier_tb
+V8 RST_Z VSS pwl(0 0 10n 0 10.1n 1.2)
+V1 VDD VSS 1.2
+.save i(v1)
+V4 VSS GND 0
+V5 net1 VSS pwl(0.000u 0.6 1u 0.6 1.000u 0.4000 2u 0.4000 2.001u 0.8000 3u 0.8000 3.001u 0.9599 4u 0.9599 4.001u 0.2401 5u 0.2401
++ 5.001u 0.0186 6u 0.0186 6.001u 1.1814 7u 1.1814)
+V6 net2 VSS pwl(0.000u 0.6 1u 0.6 1.000u 0.8000 2u 0.8000 2.001u 0.4000 3u 0.4000 3.001u 0.2401 4u 0.2401 4.001u 0.9599 5u 0.9599
++ 5.001u 1.1814 6u 1.1814 6.001u 0.0186 7u 0.0186)
+R8 net1 VIN_P 500 m=1
+R9 net2 VIN_N 500 m=1
+V2 CAL_P GND PULSE(0 1.2 0n 1n 1n 40n 100n)
+V3 CAL_N GND PULSE(1.2 0 0n 1n 1n 40n 100n)
+x1 VIN_N VIN_P VDD RST_Z OUT_P OUT_N VSS CAL_P CAL_N preamplifier
+**** begin user architecture code
+ .lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib /home/tien/conda-gf180mcu-env/share/pdk/ihp-sg13g2/libs.tech/ngspice/models/cornerRES.lib res_typ_stat
+.include /home/tien/conda-gf180mcu-env/share/pdk/ihp-sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
+
+
+
+
+.option temp = 27
+.save all
+
+.option GMIN=1e-12 reltol=1e-6
+
+.tran 10n 10u
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  preamplifier/preamplifier.sym # of pins=9
+** sym_path: /home/tien/ihp/schematic/preamplifier/preamplifier.sym
+** sch_path: /home/tien/ihp/schematic/preamplifier/preamplifier.sch
+.subckt preamplifier IN_N IN_P VDD EN OUT_P OUT_N VSS CAL_P CAL_N
+*.ipin VDD
+*.ipin VSS
+*.ipin IN_P
+*.ipin IN_N
+*.opin OUT_P
+*.opin OUT_N
+*.ipin EN
+*.ipin CAL_P
+*.ipin CAL_N
+XM3 net1 net2 VDD VDD sg13_lv_pmos w=1.058u l=1u ng=1 m=6
+XM2 net2 EN VDD VDD sg13_lv_pmos w=0.305u l=0.15u ng=1 m=1
+XM5 VDD net2 VDD VDD sg13_lv_pmos w=1.058u l=1u ng=1 m=2
+XM6 net4 net2 VDD VDD sg13_lv_pmos w=1.058u l=1u ng=1 m=1
+XM1 net2 net2 VDD VDD sg13_lv_pmos w=1.058u l=1u ng=1 m=1
+XM4 net8 net2 VDD VDD sg13_lv_pmos w=1.058u l=1u ng=1 m=3
+XM7 net11 IN_P net1 VDD sg13_lv_pmos w=4.8u l=0.2u ng=2 m=4
+XM8 net6 IN_N net1 VDD sg13_lv_pmos w=4.8u l=0.2u ng=2 m=4
+XM9 OUT_P VSS net6 VDD sg13_hv_pmos w=14.6u l=0.4u ng=2 m=1
+XM10 OUT_N VSS net11 VDD sg13_hv_pmos w=14.6u l=0.4u ng=2 m=1
+XM11 net9 CAL_P net8 VDD sg13_lv_pmos w=1u l=1.77u ng=1 m=1
+XM12 net10 CAL_N net8 VDD sg13_lv_pmos w=1u l=1.77u ng=1 m=1
+XM13 net10 net5 VSS VSS sg13_lv_nmos w=1.118u l=0.15u ng=1 m=1
+XM14 net9 net5 VSS VSS sg13_lv_nmos w=1.118u l=0.15u ng=1 m=1
+XM15 net9 VSS VSS VSS sg13_lv_nmos w=1.118u l=0.15u ng=1 m=1
+XM16 net10 VSS VSS VSS sg13_lv_nmos w=1.118u l=0.15u ng=1 m=1
+XM17 net3 net3 VSS VSS sg13_lv_nmos w=0.9u l=0.15u ng=1 m=1
+XM18 net5 net3 VSS VSS sg13_lv_nmos w=0.9u l=0.15u ng=1 m=2
+XM19 VSS net3 VSS VSS sg13_lv_nmos w=0.9u l=0.15u ng=1 m=2
+x1 EN_Z EN VDD VSS sg13g2_inv_1
+XM20 OUT_P net4 net10 VSS sg13_lv_nmos w=0.9u l=0.15u ng=1 m=4
+XM21 OUT_N net4 net9 VSS sg13_lv_nmos w=0.9u l=0.15u ng=1 m=4
+XM22 net7 EN VSS VSS sg13_lv_nmos w=3.5u l=0.15u ng=1 m=1
+XM23 net4 EN_Z VSS VSS sg13_lv_nmos w=0.42u l=0.15u ng=1 m=1
+XM24 VDD OUT_N net5 VSS sg13_hv_nmos w=0.69u l=0.5u ng=1 m=1 rfmode=1
+XM25 VDD OUT_P net5 VSS sg13_hv_nmos w=0.69u l=0.5u ng=1 m=1 rfmode=1
+XR3 rn[0] OUT_N gnd rhigh w=0.5e-6 l=2.75e-6 m=1 b=0
+XR1 OUT_P rp[0] gnd rhigh w=0.5e-6 l=2.75e-6 m=1 b=0
+XR2 net7 net14 gnd rhigh w=0.5e-6 l=2.75e-6 m=1 b=0
+XR4 net14 net13 gnd rhigh w=0.5e-6 l=2.75e-6 m=1 b=0
+XR5 net13 net12 gnd rhigh w=0.5e-6 l=2.75e-6 m=1 b=0
+XR6 net12 net2 gnd rhigh w=0.5e-6 l=2.75e-6 m=1 b=0
+XR7 net3 net15 gnd rhigh w=0.5e-6 l=2.75e-6 m=1 b=0
+XR8 net15 net4 gnd rhigh w=0.5e-6 l=2.75e-6 m=1 b=0
+.ends
+
+.GLOBAL GND
+.end

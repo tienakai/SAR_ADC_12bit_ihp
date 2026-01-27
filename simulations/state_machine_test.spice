@@ -1,0 +1,61 @@
+** sch_path: /home/tien/ihp/schematic/state_machine/state_machine_test.sch
+?
+**.subckt state_machine_test RST_Z START CLK_DATA DATA[5],DATA[4],DATA[3],DATA[2],DATA[1],DATA[0] EN_OFFSET_CAL CLK SINGLE_ENDED
+*.ipin RST_Z
+*.ipin START
+*.opin CLK_DATA
+*.opin DATA[5],DATA[4],DATA[3],DATA[2],DATA[1],DATA[0]
+*.ipin EN_OFFSET_CAL
+*.ipin CLK
+*.ipin SINGLE_ENDED
+V13 VDD VSS {VDD}
+.save i(v13)
+V14 net1 VSS {VCM}
+.save i(v14)
+V15 net2 VSS {VREF}
+.save i(v15)
+V16 VSS GND 0
+V17 START VSS pulse(0 {VDD} 20n 1n 1n 100n 1u)
+V18 RST_Z VSS pwl(0 0 10n 0 10.1n {VDD})
+V19 net4 VSS pwl(0.000u 0.6 1u 0.6 1.000u 0.4000 2u 0.4000 2.001u 0.8000 3u 0.8000 3.001u 0.9599 4u 0.9599 4.001u 0.2401 5u 0.2401
++ 5.001u 0.0186 6u 0.0186 6.001u 1.1814 7u 1.1814)
+R2 net1 VCM 500 m=1
+V20 CLK VSS pulse(0 {VDD} 0 1n 1n 40n 50n)
+V21 net5 VSS pwl(0.000u 0.6 1u 0.6 1.000u 0.8000 2u 0.8000 2.001u 0.4000 3u 0.4000 3.001u 0.2401 4u 0.2401 4.001u 0.9599 5u 0.9599
++ 5.001u 1.1814 6u 1.1814 6.001u 0.0186 7u 0.0186)
+V22 net3 VSS {VREF_GND}
+.save i(v22)
+R3 net2 VREF 500 m=1
+R4 net3 VREF_GND 500 m=1
+R5 net4 VIN_P 500 m=1
+R10 net5 VIN_N 500 m=1
+V23 EN_OFFSET_CAL VSS pwl(0 0 3u 0 3.001u {VDD})
+V24 SINGLE_ENDED VSS 0
+**** begin user architecture code
+
+
+* Supply, common mode and reference voltage
+.param VDD = 1.2
+.param VREF = 1
+.param VREF_GND = 0
+.param VCM = 0.5
+
+.option temp = 27
+
+
+.option GMIN=1e-12 reltol=1e-5
+.control
+
+		tran 10n 8u
+
+.endc
+
+
+ .lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib /home/tien/conda-gf180mcu-env/share/pdk/ihp-sg13g2/libs.tech/ngspice/models/cornerRES.lib res_typ_stat
+
+
+**** end user architecture code
+**.ends
+.end

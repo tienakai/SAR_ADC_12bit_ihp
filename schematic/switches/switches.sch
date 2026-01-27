@@ -351,7 +351,7 @@ C {devices/lab_pin.sym} 800 -370 0 1 {name=p81 sig_type=std_logic lab=VSS}
 C {devices/lab_pin.sym} 460 -370 0 1 {name=p82 sig_type=std_logic lab=VSS}
 C {devices/lab_pin.sym} 120 -370 0 1 {name=p83 sig_type=std_logic lab=VSS}
 C {individual_switches/switch_C0_dummy.sym} -270 -490 2 1 {name=x1}
-C {individual_switches/switch_C5.sym} -30 -540 2 1 {name=x2}
+C {individual_switches/switch_C5.sym} -30 -540 2 1 {name=e}
 C {individual_switches/switch_C5.sym} 310 -540 2 1 {name=x3}
 C {individual_switches/switch_C5.sym} 650 -540 2 1 {name=x4}
 C {individual_switches/switch_C5.sym} 990 -540 2 1 {name=x5}
