@@ -14,7 +14,7 @@ Key objectives:
 - Full-custom mixed-signal design
 - Hierarchical block-based development
 - Layout and post-layout validation
-- Educational and portfolio usage
+
 
 ---
 
